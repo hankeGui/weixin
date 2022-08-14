@@ -52,7 +52,7 @@ birthday = "1996-2-2"
 if BIRTHDAY in os.environ:
     birthday = os.environ[BIRTHDAY]
 # 在一起的日子，格式同上
-love_date = "2020-8-10"
+love_date = "2022-8-10"
 if START_DATE in os.environ:
     love_date = os.environ[START_DATE]
 
