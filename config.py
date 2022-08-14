@@ -56,7 +56,7 @@ love_date = "2020-8-10"
 if START_DATE in os.environ:
     love_date = os.environ[START_DATE]
 
-tetest_push = ""
+test_push = ""
 if TEST in os.environ:
     test_push = os.environ[TEST]
 
