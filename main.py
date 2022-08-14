@@ -59,7 +59,7 @@ def get_ciba():
 
 def send_message(to_user, access_token, city_name, weather, max_temperature, min_temperature, note_ch, note_en):
     url = "https://api.weixin.qq.com/cgi-bin/message/template/send?access_token={}".format(access_token)
-    week_list = ["星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"]
+    week_list = ["null", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六", "星期日"]
     year = localtime().tm_year
     month = localtime().tm_mon
     day = localtime().tm_mday
