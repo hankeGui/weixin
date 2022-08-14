@@ -6,6 +6,7 @@ name: push
 on:
   push:
     branches: [ "main" ]
+  workflow_dispatch:
 
 permissions:
   contents: read
@@ -35,7 +36,7 @@ jobs:
     - name: Test with pytest
       run: |
         python main.py
-        
+
     env:
       APP_ID: ${{ secrets.APP_ID }}
       APP_SECRET: ${{ secrets.APP_SECRET }}
@@ -45,3 +46,4 @@ jobs:
       BIRTHDAY: ${{ secrets.BIRTHDAY }}
       CITY: ${{ secrets.CITY }}
       PROVINCE: ${{ secrets.PROVINCE}}
+      TEST: "push-test"

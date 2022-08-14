@@ -1,3 +1,4 @@
+from cgi import test
 from time import time, localtime
 import cityinfo
 import config
@@ -149,4 +150,5 @@ weather, max_temperature, min_temperature = get_weather(province, city)
 # 获取词霸每日金句
 note_ch, note_en = get_ciba()
 # 公众号推送消息
-send_message(user, accessToken, city, weather, max_temperature, min_temperature, note_ch, note_en)
+test_push = config.test_push
+send_message(user, accessToken, city + test_push, weather, max_temperature, min_temperature, note_ch, note_en)

@@ -8,6 +8,7 @@ START_DATE = 'START_DATE'
 BIRTHDAY = 'START_DATE'
 CITY = 'CITY'
 PROVICE = 'PROVICE'
+TEST = 'TEST'
 # 公众号配置
 # 公众号appId
 
@@ -47,11 +48,15 @@ city = "西安"
 if CITY in os.environ:
     city = os.environ[CITY]
 # 生日，如果月份或者日期小于10，直接用对应的数字即可，例如1997-1-1
-birthday = "1997-1-1"
-# if BIRTHDAY in os.environ:
-#     birthday = os.environ[BIRTHDAY]
+birthday = "1996-2-2"
+if BIRTHDAY in os.environ:
+    birthday = os.environ[BIRTHDAY]
 # 在一起的日子，格式同上
-love_date = "2022-8-10"
-# if START_DATE in os.environ:
-#     love_date = os.environ[START_DATE]
+love_date = "2020-8-10"
+if START_DATE in os.environ:
+    love_date = os.environ[START_DATE]
+
+tetest_push = ""
+if TEST in os.environ:
+    test_push = os.environ[TEST]
 
