@@ -1,7 +1,7 @@
 # This workflow will install Python dependencies, run tests and lint with a single version of Python
 # For more information see: https://help.github.com/actions/language-and-framework-guides/using-python-with-github-actions
 
-name: Python application
+name: corn
 
 on:
   schedule:
@@ -36,12 +36,12 @@ jobs:
       run: |
         python main.py
 
-    env:
-      APP_ID: ${{ secrets.APP_ID }}
-      APP_SECRET: ${{ secrets.APP_SECRET }}
-      TEMPLATE_ID: ${{ secrets.TEMPLATE_ID }}
-      USER_ID: ${{ secrets.USER_ID }}
-      START_DATE: ${{ secrets.START_DATE }}
-      BIRTHDAY: ${{ secrets.BIRTHDAY }}
-      CITY: ${{ secrets.CITY }}
-      PROVINCE: ${{ secrets.PROVINCE}}
+env:
+  APP_ID: ${{ secrets.APP_ID }}
+  APP_SECRET: ${{ secrets.APP_SECRET }}
+  TEMPLATE_ID: ${{ secrets.TEMPLATE_ID }}
+  USER_ID: ${{ secrets.USER_ID_XU }}
+  START_DATE: ${{ secrets.START_DATE }}
+  BIRTHDAY: ${{ secrets.BIRTHDAY }}
+  CITY: ${{ secrets.CITY }}
+  PROVINCE: ${{ secrets.PROVINCE}}
