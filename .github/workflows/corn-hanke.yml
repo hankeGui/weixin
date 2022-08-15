@@ -5,7 +5,7 @@ name: corn-han
 
 on:
   schedule:
-  - cron:  '13 3 * * *'
+  - cron:  '0 1 * * *'
   workflow_dispatch:
 
 permissions:
