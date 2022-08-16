@@ -1,3 +1,4 @@
+# coding=UTF-8
 from cgi import test
 from time import time, localtime
 import cityinfo
