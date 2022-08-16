@@ -1,3 +1,4 @@
+# coding=UTF-8
 cityInfo = {
   "北京": {
     "北京": {
