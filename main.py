@@ -143,7 +143,7 @@ def send_message(to_user, access_token, city_name, weather, max_temperature, min
 # 获取accessToken
 accessToken = get_access_token()
 # 接收的用户
-user = config.user
+userList = config.userList
 # 传入省份和市获取天气信息
 province, city = config.province, config.city
 weather, max_temperature, min_temperature = get_weather(province, city)
@@ -151,4 +151,5 @@ weather, max_temperature, min_temperature = get_weather(province, city)
 note_ch, note_en = get_ciba()
 # 公众号推送消息
 test_push = config.test_push
-send_message(user, accessToken, city + test_push, weather, max_temperature, min_temperature, note_ch, note_en)
+for user in userList:
+    send_message(user, accessToken, city + test_push, weather, max_temperature, min_temperature, note_ch, note_en)

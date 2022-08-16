@@ -2,13 +2,15 @@
 import os
 
 USER_ID = 'USER_ID'
-APP_ID =  'APP_ID'
+USER_ID_HANKE = 'USER_ID_HANKE'
+USER_ID_XU = 'USER_ID_XU'
+APP_ID = 'APP_ID'
 APP_SECRET = 'APP_SECRET'
 TEMPLATE_ID = 'TEMPLATE_ID'
 START_DATE = 'START_DATE'
 BIRTHDAY = 'START_DATE'
 CITY = 'CITY'
-PROVICE = 'PROVICE'
+PROVINCE = 'PROVINCE'
 TEST = 'TEST'
 # 公众号配置
 # 公众号appId
@@ -30,10 +32,15 @@ if TEMPLATE_ID in os.environ:
     template_id = os.environ[TEMPLATE_ID]
 # 接收公众号消息的微信号
 
-# hanke
-user = "oGhoI6nm1IEfcOCr74fK15ZRs6tw"
+# hanke oGhoI6nm1IEfcOCr74fK15ZRs6tw
+userList = []
 if USER_ID in os.environ:
-    user = os.environ[USER_ID]
+    userList.append(os.environ[USER_ID])
+if USER_ID_XU in os.environ:
+    userList.append(os.environ[USER_ID_XU])
+if USER_ID_HANKE in os.environ:
+    userList.append(os.environ[USER_ID_HANKE])
+
 
 # 徐
 # user = "oGhoI6jAa_zqGi1G_ztZRuWXm5AE"
@@ -42,8 +49,8 @@ if USER_ID in os.environ:
 # 信息配置
 # 所在省份
 province = "陕西"
-if PROVICE in os.environ:
-    province = os.environ[PROVICE]
+if PROVINCE in os.environ:
+    province = os.environ[PROVINCE]
 # 所在城市
 city = "西安"
 if CITY in os.environ:
