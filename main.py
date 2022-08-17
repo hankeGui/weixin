@@ -1,5 +1,5 @@
 # coding=UTF-8
-from time import time, localtime
+from time import time, localtime, sleep
 import cityinfo
 import config
 from requests import get, post
@@ -25,9 +25,9 @@ def get_weather(province, city):
     # 毫秒级时间戳
     t = (int(round(time() * 1000)))
     headers = {
-      "Referer": "http://www.weather.com.cn/weather1d/{}.shtml".format(city_id),
-      'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) '
-                    'AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36'
+        "Referer": "http://www.weather.com.cn/weather1d/{}.shtml".format(city_id),
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) '
+                      'AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36'
     }
     url = "http://d1.weather.com.cn/dingzhi/{}.html?_={}".format(city_id, t)
     response = get(url, headers=headers)
@@ -48,9 +48,9 @@ def get_weather(province, city):
 def get_ciba():
     url = "http://open.iciba.com/dsapi/"
     headers = {
-      'Content-Type': 'application/json',
-      'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) '
-                    'AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36'
+        'Content-Type': 'application/json',
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) '
+                      'AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36'
     }
     r = get(url, headers=headers)
     note_en = r.json()["content"]
@@ -110,16 +110,16 @@ def send_message(to_user, access_token, city_name, weather, max_temperature, min
                 "color": "#00FF00"
             },
             "max_temperature": {
-              "value": max_temperature,
-              "color": "#FF6100"
+                "value": max_temperature,
+                "color": "#FF6100"
             },
             "love_day": {
-              "value": love_days,
-              "color": "#87CEEB"
+                "value": love_days,
+                "color": "#87CEEB"
             },
             "birthday": {
-              "value": birth_day,
-              "color": "#FF8000"
+                "value": birth_day,
+                "color": "#FF8000"
             },
             "note_en": {
                 "value": note_en,
@@ -132,12 +132,12 @@ def send_message(to_user, access_token, city_name, weather, max_temperature, min
         }
     }
     headers = {
-      'Content-Type': 'application/json',
-      'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) '
-                    'AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36'
+        'Content-Type': 'application/json',
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) '
+                      'AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36'
     }
     response = post(url, headers=headers, json=data)
-    print(response.text)
+    print(to_user + response.text)
 
 
 # 获取accessToken
@@ -153,3 +153,4 @@ note_ch, note_en = get_ciba()
 test_push = config.test_push
 for user in userList:
     send_message(user, accessToken, city + test_push, weather, max_temperature, min_temperature, note_ch, note_en)
+    sleep(30)
